@@ -1,7 +1,8 @@
 "use client"; import { useEffect, useState } from "react"; import Link from "next/link"; import type { Cake } from "@/lib/cakes"; import { loadGallery } from "@/lib/storage"; import { isUploadedImage } from "@/lib/settings"; import CakeCard, { inrSafe } from "@/components/CakeCard"; import Photo from "@/components/Photo"; import WhatsAppButton from "@/components/WhatsAppButton"; import { buildGalleryMessage, waLink } from "@/lib/whatsapp"; import { useSettings } from "@/components/useSettings";
-const FILTERS=["All","Birthday","Wedding","Kids","Baptism","Anniversary","Table Sets"];
+
 export default function Gallery(){ const st=useSettings(); const [cakes,setCakes]=useState<Cake[]>([]); const [filter,setFilter]=useState("All"); const [selected,setSelected]=useState<Cake|null>(null); const [size,setSize]=useState("1kg");
  useEffect(()=>{ loadGallery().then(setCakes); },[]);
+ const FILTERS=["All",...(st.gallery.categories?.length?st.gallery.categories:["Birthday","Wedding","Kids","Baptism","Anniversary","Table Sets"])];
  const list=cakes.filter(c=>c.visible!==false && isUploadedImage(c.image) && (filter==="All"||c.occasion===filter));
  return <div className="mx-auto max-w-6xl px-4 py-6"><h1 className="text-3xl">{st.gallery.title}</h1><p className="text-muted mt-1">{st.gallery.subtitle}</p>
  <div className="flex gap-2 flex-wrap mt-5" role="group" aria-label="Filter cakes">{FILTERS.map(f=><button key={f} className={`chip ${filter===f?"chip-active":""}`} onClick={()=>setFilter(f)}>{f}</button>)}</div>
