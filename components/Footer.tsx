@@ -1,0 +1,5 @@
+"use client"; import Link from "next/link"; import { useSettings } from "./useSettings"; import { waLink } from "@/lib/whatsapp";
+export default function Footer(){ const s=useSettings(); return <footer className="mt-16 border-t border-sand bg-card"><div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-2">
+<div><p className="font-heading text-xl">{s.site.name}</p><p className="text-muted mt-2">{s.site.address}</p><p className="mt-2">WhatsApp: <a className="underline font-semibold" href={waLink("Hi "+s.site.name)}>{s.site.phoneDisplay}</a></p><p>FSSAI Lic. No. {s.site.fssai}</p><p>{s.footer.text}</p><p className="malayalam mt-2">{s.site.malayalamLine}</p></div>
+<div className="flex flex-col gap-2"><Link href="/designer">Design Your Cake</Link><Link href="/gallery">Gallery</Link><Link href="/table-sets">Table Sets</Link><Link href="/about">About / Contact</Link><a href={s.site.instagram} target="_blank" rel="noreferrer">Instagram: @relish_cakebox</a><a href={s.site.mapsUrl} target="_blank" rel="noreferrer">Find us on Google Maps</a><Link href="/relish" className="text-sm text-muted mt-4">Owner Admin</Link></div>
+</div></footer> }

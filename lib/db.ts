@@ -1,0 +1,6 @@
+import { neon } from "@neondatabase/serverless";
+export function hasDb(){ return !!process.env.DATABASE_URL; }
+export function sql(){ if(!process.env.DATABASE_URL) return null; return neon(process.env.DATABASE_URL); }
+export async function ensureTables(){ const q=sql(); if(!q) return false; await q`CREATE TABLE IF NOT EXISTS gallery_cakes (id text PRIMARY KEY, name text, occasion text, price int, image text, description text, sizes text, visible boolean DEFAULT true, updated_at timestamptz DEFAULT now())`; await q`CREATE TABLE IF NOT EXISTS pricing_store (id int PRIMARY KEY, data jsonb)`; return true; }
+export async function adminToken(){ const pin=process.env.ADMIN_PIN; if(!pin) return ""; const {createHash}=await import("crypto"); return createHash("sha256").update("relish:"+pin).digest("hex"); }
+export async function checkPin(req:Request){ const expected=process.env.ADMIN_PIN; if(!expected) return process.env.NODE_ENV!=="production"; const {createHash}=await import("crypto"); const token=createHash("sha256").update("relish:"+expected).digest("hex"); const cookie=req.headers.get("cookie")||""; if(cookie.includes(`relish_admin=${token}`)) return true; const pin=req.headers.get("x-admin-pin"); return pin===expected; }
