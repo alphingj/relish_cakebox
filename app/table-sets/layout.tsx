@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Table Sets — Cake, Cupcakes, Chocolates & Cookies in Pala", description: "Event table sets from Relish Cakebox: main cake plus cupcakes, chocolates and cookies for baptism, communion and birthday events near Pala.", alternates: { canonical: "/table-sets" }, openGraph: { title: "Table Sets — Cake, Cupcakes, Chocolates & Cookies in Pala", description: "Event table sets from Relish Cakebox: main cake plus cupcakes, chocolates and cookies for baptism, communion and birthday events near Pala.", url: "/table-sets", images: ["/opengraph-image"] } };
+export default function Layout({ children }: { children: React.ReactNode }) { return children; }

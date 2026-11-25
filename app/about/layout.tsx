@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "About & Contact — Relish Cakebox, Marangattupilly Pala", description: "Contact Relish Cakebox: WhatsApp +91 92078 43867, Marangattupilly, Pala, Kottayam 686635. FSSAI Lic. No. 21320166000450. Delivery areas and FAQs.", alternates: { canonical: "/about" }, openGraph: { title: "About & Contact — Relish Cakebox, Marangattupilly Pala", description: "Contact Relish Cakebox: WhatsApp +91 92078 43867, Marangattupilly, Pala, Kottayam 686635. FSSAI Lic. No. 21320166000450. Delivery areas and FAQs.", url: "/about", images: ["/opengraph-image"] } };
+export default function Layout({ children }: { children: React.ReactNode }) { return children; }

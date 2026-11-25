@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Cake Gallery — Real Cakes Made in Marangattupilly & Pala", description: "See real custom cakes made by Relish Cakebox: wedding, birthday, baptism, kids and anniversary cakes with starting prices. Order any cake on WhatsApp.", alternates: { canonical: "/gallery" }, openGraph: { title: "Cake Gallery — Real Cakes Made in Marangattupilly & Pala", description: "See real custom cakes made by Relish Cakebox: wedding, birthday, baptism, kids and anniversary cakes with starting prices. Order any cake on WhatsApp.", url: "/gallery", images: ["/opengraph-image"] } };
+export default function Layout({ children }: { children: React.ReactNode }) { return children; }

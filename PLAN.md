@@ -4,11 +4,11 @@
 Build a mobile-first, handheld-primary Next.js App Router + Tailwind + TypeScript site for Relish Cakebox (Marangattupilly / Pala) that turns Instagram browsing into WhatsApp orders. Design phone-first (360px base), then scale up to desktop — never the reverse. No checkout, no payments. Every order path ends in a pre-filled `https://wa.me/919207843867?text=` message to the owner. The ONLY phone/WhatsApp number anywhere is +91 9207843867 (display `+91 92078 43867`). Theme locked: Earthy Terracotta on Cream (#FFF6E8), Fraunces headings + Inter body + Manjari for Malayalam words.
 
 ## Canonical Business Facts (owner-confirmed)
-- Name: Relish Cakebox. Address as supplied: Pala, Marangattupally, Kottayam – 686635, Kerala, India. PIN code: 686635 (confirmed certain).
+- Name: Relish Cakebox. Address as supplied: Pala, Marangattupilly, Kottayam – 686635, Kerala, India. PIN code: 686635 (confirmed certain).
 - Phone / WhatsApp (only number): 09207843867, displayed `+91 92078 43867`, wa.me `919207843867`.
 - Location: Plus Code `PJH4+W8 Pala, Keralam`; coordinates 9.7298125, 76.6058125 (owner DMS 9°43'47.3"N 76°36'20.9"E). Google Maps: https://google.com/maps/place/Relish+Cakebox/@9.7270354,76.5956257,14.89z/data=!4m6!3m5!1s0x3b07d1862ca2bbf5:0x3cc064c010d4a65c!8m2!3d9.7298125!4d76.6058125!16s%2Fg%2F11td9736b8
 - Use these exact values for footer, About, Bakery JSON-LD (`PostalAddress` + `geo`), Google Business Profile, JustDial, Bing Places and `llms.txt`. Visible HTML must match schema exactly.
-- Still open before schema/GBP lock: locality spelling — brief says Marangattupilly, owner message says Marangattupally — must match the GBP listing byte-for-byte; also street line, opening hours, domain, price range confirmation.
+- Still open before schema/GBP lock: locality spelling — brief says Marangattupilly, owner message says Marangattupilly — must match the GBP listing byte-for-byte; also street line, opening hours, domain, price range confirmation.
 
 ## Success Criteria
 - Visitor can design a cake and send it on WhatsApp in under 2 minutes, no confusion.
@@ -57,7 +57,7 @@ Build a mobile-first, handheld-primary Next.js App Router + Tailwind + TypeScrip
 - `app/api/upload/route.ts`, `app/api/gallery/route.ts` (+ pricing/settings routes as needed)
 - `components/Navbar.tsx`, `Footer.tsx`, `CakeCard.tsx`, `DesignerSteps.tsx`, `PriceSummary.tsx`, `WhatsAppButton.tsx`
 - `lib/pricing.ts`, `lib/whatsapp.ts`, `lib/storage.ts`, `lib/db.ts`, `lib/cakes.ts`
-- `public/cakes/` seed images + `public/cakes/README.md`, `README.md` (run, Vercel Blob + DB setup, domain move), `PLAN.md` (this file)
+- `README.md` + `deploy.md` (run, Vercel Blob + DB setup, domain). No seed/placeholder images ship; gallery starts empty until owner uploads.
 
 ## Validation Plan
 - `npm run build` + `npm run lint` clean; Designer walkthrough (occasion→kg/shape→flavour→theme→date/delivery) → estimate matches Admin values; WhatsApp link contains all fields, uses ONLY `919207843867`, newlines encoded.
@@ -70,7 +70,7 @@ Build a mobile-first, handheld-primary Next.js App Router + Tailwind + TypeScrip
 
 ## Risks / Open Questions
 - Vercel Blob + Marketplace Postgres add accounts/costs beyond free hobby limits at scale — assumed fine for a bakery gallery; if the owner wants zero-backend, fallback is git-committed `public/cakes/` photos (redeploy per change, no Admin upload). Decision: ship Blob + DB as above.
-- Real cake photos and final fixed prices not in brief — ship clearly-labelled seeds with real names; owner replaces via Admin uploads. No fake data invented beyond brief.
+- Real cake photos and final fixed prices not in brief — ship with zero demo/placeholder data; owner uploads real photos/prices via Admin. No fake data invented beyond brief.
 - WhatsApp cannot receive auto-attached files via wa.me — message tells buyer to attach reference photo after sending.
 - Single number confirmed: only +91 9207843867 (owner-supplied 09207843867) everywhere; old `62357 47583` fully removed.
 - Address/PIN/geo now owner-confirmed (686635; 9.7298125, 76.6058125; PJH4+W8). Remaining owner inputs: street line, locality spelling vs GBP, opening hours, domain, per-town delivery fee/advance days, eggless availability, price range.

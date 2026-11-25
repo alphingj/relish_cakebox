@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Design Your Cake — Custom Cake Designer in Pala", description: "Pick occasion, size, flavour, theme and date. See a fixed price or estimated range, then send your cake design on WhatsApp to Relish Cakebox.", alternates: { canonical: "/designer" }, openGraph: { title: "Design Your Cake — Custom Cake Designer in Pala", description: "Pick occasion, size, flavour, theme and date. See a fixed price or estimated range, then send your cake design on WhatsApp to Relish Cakebox.", url: "/designer", images: ["/opengraph-image"] } };
+export default function Layout({ children }: { children: React.ReactNode }) { return children; }
